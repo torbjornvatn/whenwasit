@@ -1,3 +1,23 @@
+html, body {
+    background: #F0F0F0;
+    font-family: Helvetica, Arial, Sans !important;
+}
+
+body {
+    width: 900px;
+    margin: auto;
+}
+
+header
+{
+    margin-left:35px;    
+}
+
+article
+{
+    padding:25px;    
+}
+
 fieldset
 {
     border: 0px;
@@ -9,4 +29,11 @@ fieldset
 #datepicker
 {
     float:left;
+}
+
+footer
+{
+    text-align: center;
+    font-size: 60%;
+    margin-top: 250px;
 }
