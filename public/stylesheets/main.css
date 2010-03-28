@@ -1,0 +1,12 @@
+fieldset
+{
+    border: 0px;
+    display:inline;
+    float:left;
+    margin-top: 100px;
+}
+
+#datepicker
+{
+    float:left;
+}

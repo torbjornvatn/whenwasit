@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'WhenWasIt?' /}
+
+<div>
+    <header>
+        <h1>WhenWasIt?</h1>
+    </header>
+    <article>
+
+        <fieldset>
+            ${today}
+            <span class="sign">=</span>
+            <input id="minus" value="days"/>
+            <span class="sign">-</span>
+        </fieldset>
+
+        <div type="text" id="datepicker"></div>
+
+        <fieldset>
+            <span class="sign">+</span>
+            <input id="plus" value="days"/>
+            <span class="sign">=</span>
+            ${today}
+        </fieldset>
+        
+    </article>
+</div>
+
+<script>
+    $(document).ready(function() {
+    $("#datepicker").datepicker();
+    });
+</script>
