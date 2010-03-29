@@ -8,7 +8,7 @@
     <article>
 
         <fieldset>
-            ${today}
+            <span id="minus_date">${date}</span>
             <span class="sign">=</span>
             <input id="minus" value="days"/>
             <span class="sign">-</span>
@@ -20,9 +20,9 @@
             <span class="sign">+</span>
             <input id="plus" value="days"/>
             <span class="sign">=</span>
-            ${today}
+            <span id="plus_date">${date}</span>
         </fieldset>
-        
+
     </article>
     <footer>
         <p>Compiled by <a href="http://twitter.com/torbjornvatn">@torbjornvatn</a></p>
@@ -31,6 +31,15 @@
 
 <script>
     $(document).ready(function() {
-    $("#datepicker").datepicker();
+        $("#datepicker").datepicker();
     });
+
+        var calculateAction = #{jsAction @calculate(':date', ':extraDays') /}
+        $("#plus").bind("keyup", function(event){
+            if ( event.which > 47 &&  event.which < 58) {
+                $.post(calculateAction({date: $("#datepicker").val(), extraDays: $("#plus").val()}), function(data) {
+                    alert("Data Loaded: " + data);
+                });
+            }
+        });
 </script>
