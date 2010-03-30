@@ -3,37 +3,34 @@ html, body {
     font-family: Helvetica, Arial, Sans !important;
 }
 
+header h1 {
+    
+}
+
 body {
     width: 900px;
+    height: 400px;
     margin: auto;
 }
 
-header
-{
-    margin-left:35px;    
-}
-
-article
-{
-    padding:25px;    
-}
-
-fieldset
-{
-    border: 0px;
+fieldset {
+    border: none;
     display:inline;
     float:left;
     margin-top: 100px;
 }
 
-#datepicker
-{
-    float:left;
+#datepicker {
+    width: 307px;
+    height: 3px;
+    margin: 0px auto 0px auto;
 }
 
-footer
-{
+footer {
+    width:100%;
+    display:inline;
+    float:left;
     text-align: center;
-    font-size: 70%;
-    margin-top: 250px;
+    font-size: 80%;
+    margin-top: 100px;
 }

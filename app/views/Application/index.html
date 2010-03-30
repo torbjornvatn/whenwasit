@@ -5,7 +5,8 @@
     <header>
         <h1>WhenWasIt?</h1>
     </header>
-    <article>
+
+    <div type="text" id="datepicker"></div>
 
         <fieldset>
             <span id="minus_date">${date}</span>
@@ -14,16 +15,15 @@
             <span class="sign">-</span>
         </fieldset>
 
-        <div type="text" id="datepicker"></div>
 
-        <fieldset>
+
+        <fieldset style="float:right">
             <span class="sign">+</span>
             <input id="plus" value="days"/>
             <span class="sign">=</span>
             <span id="plus_date">${date}</span>
         </fieldset>
 
-    </article>
     <footer>
         <p>Compiled by <a href="http://twitter.com/torbjornvatn">@torbjornvatn</a></p>
     </footer>
@@ -39,7 +39,7 @@
             if ( event.which > 47 &&  event.which < 58) {
                 $.post(calculateAction({date: $("#datepicker").val(), extraDays: $("#plus").val()}), function(data) {
                     alert("Data Loaded: " + data);
-                });
+                }, "text");
             }
         });
 </script>
