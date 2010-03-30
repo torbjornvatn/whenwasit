@@ -3,3 +3,4 @@ test-result
 whenwasit.iml
 tmp/
 logs/
+precompiled/
