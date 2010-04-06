@@ -9,3 +9,4 @@ precompiled/
 .scala_dependencies
 .settings/
 server.pid
+eclipse/
