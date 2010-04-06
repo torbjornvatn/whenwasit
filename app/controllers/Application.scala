@@ -9,7 +9,7 @@ object Application extends Controller {
 
   val dateFormat = new SimpleDateFormat("dd.MM.yyyy")
 
-  def index() {
+  def index(date: Date) {
     val date = dateFormat.format(new Date())
     render(date)
   }
@@ -18,9 +18,7 @@ object Application extends Controller {
     val calendar = Calendar.getInstance()
     calendar.setTime(new SimpleDateFormat("MM/dd/yyyy").parse(date))
     calendar.add(Calendar.DATE, extraDays)
-
-    Logger.info(dateFormat.format(calendar.getTime))
-    
+    renderText(dateFormat.format(calendar.getTime))
   }
 
 }

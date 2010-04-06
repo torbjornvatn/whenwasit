@@ -34,10 +34,10 @@
         $("#datepicker").datepicker();
     });
 
-        var calculateAction = #{jsAction @calculate(':date', ':extraDays') /}
+        var calculateAction = #{jsAction @calculate() /}
         $("#plus").bind("keyup", function(event){
             if ( event.which > 47 &&  event.which < 58) {
-                $.post(calculateAction({date: $("#datepicker").val(), extraDays: $("#plus").val()}), function(data) {
+                $.post(calculateAction(), {'date': $("#datepicker").val(), 'extraDays': $("#plus").val()}, function(data) {
                     alert("Data Loaded: " + data);
                 }, "text");
             }

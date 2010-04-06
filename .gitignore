@@ -4,3 +4,8 @@ whenwasit.iml
 tmp/
 logs/
 precompiled/
+.classpath
+.project
+.scala_dependencies
+.settings/
+server.pid
