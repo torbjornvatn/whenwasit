@@ -8,21 +8,19 @@
 
     <div type="text" id="datepicker"></div>
 
-        <fieldset>
-            <span id="minus_date">${date}</span>
-            <span class="sign">=</span>
-            <input id="minus" value="days"/>
-            <span class="sign">-</span>
-        </fieldset>
+    <fieldset>
+        <span id="minus_date">${date}</span>
+        <span class="sign">=</span>
+        <input id="minus" value="days"/>
+        <span class="sign">-</span>
+    </fieldset>
 
-
-
-        <fieldset style="float:right">
-            <span class="sign">+</span>
-            <input id="plus" value="days"/>
-            <span class="sign">=</span>
-            <span id="plus_date">${date}</span>
-        </fieldset>
+    <fieldset style="float:right">
+        <span class="sign">+</span>
+        <input id="plus" value="days"/>
+        <span class="sign">=</span>
+        <span id="plus_date">${date}</span>
+    </fieldset>
 
     <footer>
         <p>Compiled by <a href="http://twitter.com/torbjornvatn">@torbjornvatn</a></p>
@@ -34,12 +32,26 @@
         $("#datepicker").datepicker();
     });
 
-        var calculateAction = #{jsAction @calculate() /}
-        $("#plus").bind("keyup", function(event){
-            if ( event.which > 47 &&  event.which < 58) {
-                $.post(calculateAction(), {'date': $("#datepicker").val(), 'extraDays': $("#plus").val()}, function(data) {
-                    alert("Data Loaded: " + data);
-                }, "text");
-            }
-        });
+    var calculateAction = #{jsAction @calculate() /}
+
+    $("#plus").bind("keyup", updatePlusDate);
+    $("#minus").bind("keyup", updateMinusDate);
+
+    function updatePlusDate(event) {
+        updateDate(event, "#plus");
+    }
+
+    function updateMinusDate(event) {
+        updateDate(event, "#minus");
+    }
+
+    function updateDate(event, signId) {
+        var sign = (signId == "#plus") ? "" : "-";
+        if (event.which > 47 &&  event.which < 58) {
+            $.post(calculateAction(), {'date': $("#datepicker").val(), 'extraDays': sign+$(signId).val()}, function(date) {
+                $(signId+"_date").text(date);
+            }, "text");
+        }
+    }
+
 </script>
