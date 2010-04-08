@@ -25,33 +25,27 @@
     <footer>
         <p>Compiled by <a href="http://twitter.com/torbjornvatn">@torbjornvatn</a></p>
     </footer>
-</div>
+    <script>
+        var calculateAction = #{jsAction @Application.calculate() /}
 
-<script>
-    $(document).ready(function() {
-        $("#datepicker").datepicker();
-    });
+        $("#plus").bind("keyup", updatePlusDate);
+        $("#minus").bind("keyup", updateMinusDate);
 
-    var calculateAction = #{jsAction @calculate() /}
-
-    $("#plus").bind("keyup", updatePlusDate);
-    $("#minus").bind("keyup", updateMinusDate);
-
-    function updatePlusDate(event) {
-        updateDate(event, "#plus");
-    }
-
-    function updateMinusDate(event) {
-        updateDate(event, "#minus");
-    }
-
-    function updateDate(event, signId) {
-        var sign = (signId == "#plus") ? "" : "-";
-        if (event.which > 47 &&  event.which < 58) {
-            $.post(calculateAction(), {'date': $("#datepicker").val(), 'extraDays': sign+$(signId).val()}, function(date) {
-                $(signId+"_date").text(date);
-            }, "text");
+        function updatePlusDate(event) {
+            updateDate(event, "#plus");
         }
-    }
 
-</script>
+        function updateMinusDate(event) {
+            updateDate(event, "#minus");
+        }
+
+        function updateDate(event, signId) {
+            var sign = (signId == "#plus") ? "" : "-";
+            if (event.which > 47 &&  event.which < 58) {
+                $.post(calculateAction(), {'date': $("#datepicker").val(), 'extraDays': sign+$(signId).val()}, function(date) {
+                    $(signId+"_date").text(date);
+                }, "text");
+            }
+        }
+    </script>
+</div>
