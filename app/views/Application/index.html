@@ -27,13 +27,7 @@
     </footer>
     <script>
 
-        $(function(){
-            // find all the input elements with title attributes
-            $('input[title!=""]').hint();
-        });
-
         var calculateAction = #{jsAction @Application.calculate() /}
-
         $("#plus").bind("keyup", updatePlusDate);
         $("#minus").bind("keyup", updateMinusDate);
 
@@ -54,7 +48,6 @@
             }
         }
 
-        
-
+                  
     </script>
 </div>

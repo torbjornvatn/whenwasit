@@ -15,6 +15,10 @@ input.blur {
     color: #999;
 }
 
+input {
+    color: #606060;
+}
+
 header h1 {
 	font-size:60px;
 	margin-left: 15px;
