@@ -1,32 +1,66 @@
 html, body {
-    background: #F0F0F0;
+    background: #a4a4a4  url('/public/images/grayBackground.gif');
     font-family: Helvetica, Arial, Sans !important;
 }
 
 body {
-    width: 900px;
+    width: 920px;
     height: 400px;
     margin: auto;
+    color: #606060;
+    text-shadow: 0px 2px 3px #cecece;
+}
+
+input.blur {
+    color: #999;
+}
+
+header h1 {
+	font-size:60px;
+	margin-left: 15px;
 }
 
 fieldset {
     border: none;
     display:inline;
-    float:left;
     margin-top: 100px;
+    font-size: 30px;
+}
+
+#plus, #minus {
+    width: 2.5em;
+    height: 30px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#plus_fieldset {
+    float:right;
+}
+
+#minus_fieldset {
+    float:left;
 }
 
 #datepicker {
-    width: 307px;
+    width: 315px;
     height: 3px;
     margin: 0px auto 0px auto;
 }
 
 footer {
-    width:100%;
+    width:99%;
     display:inline;
     float:left;
     text-align: center;
     font-size: 80%;
-    margin-top: 100px;
+    margin-top: 80px;
+}
+
+footer a {
+    color: #606060;
+}
+
+footer a:hover {
+    color: black;
 }

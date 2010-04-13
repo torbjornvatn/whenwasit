@@ -8,17 +8,17 @@
 
     <div type="text" id="datepicker"></div>
 
-    <fieldset>
+    <fieldset id="minus_fieldset">
         <span id="minus_date">${date}</span>
-        <span class="sign">=</span>
-        <input id="minus" value="days"/>
-        <span class="sign">-</span>
+        <span>=</span>
+        <input id="minus" value="" title="days"/>
+        <span id="minus_sign">-</span>
     </fieldset>
 
-    <fieldset style="float:right">
-        <span class="sign">+</span>
-        <input id="plus" value="days"/>
-        <span class="sign">=</span>
+    <fieldset id="plus_fieldset">
+        <span id="plus_sign">+</span>
+        <input id="plus" value="" title="days"/>
+        <span>=</span>
         <span id="plus_date">${date}</span>
     </fieldset>
 
@@ -26,6 +26,12 @@
         <p>Compiled by <a href="http://twitter.com/torbjornvatn">@torbjornvatn</a></p>
     </footer>
     <script>
+
+        $(function(){
+            // find all the input elements with title attributes
+            $('input[title!=""]').hint();
+        });
+
         var calculateAction = #{jsAction @Application.calculate() /}
 
         $("#plus").bind("keyup", updatePlusDate);
@@ -47,5 +53,8 @@
                 }, "text");
             }
         }
+
+        
+
     </script>
 </div>
