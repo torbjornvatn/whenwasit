@@ -28,26 +28,6 @@
     <script>
 
         var calculateAction = #{jsAction @Application.calculate() /}
-        $("#plus").bind("keyup", updatePlusDate);
-        $("#minus").bind("keyup", updateMinusDate);
 
-        function updatePlusDate(event) {
-            updateDate(event, "#plus");
-        }
-
-        function updateMinusDate(event) {
-            updateDate(event, "#minus");
-        }
-
-        function updateDate(event, signId) {
-            var sign = (signId == "#plus") ? "" : "-";
-            if (event.which > 47 &&  event.which < 58 || event.which == 8) {
-                $.post(calculateAction(), {'date': $("#datepicker").val(), 'extraDays': sign+$(signId).val()}, function(date) {
-                    $(signId+"_date").text(date);
-                }, "text");
-            }
-        }
-
-                  
     </script>
 </div>
