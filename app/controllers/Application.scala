@@ -10,8 +10,8 @@ object Application extends Controller {
   val dateFormat = new SimpleDateFormat("dd.MM.yyyy")
 
   def index(date: Date) {
-    val date = dateFormat.format(new Date())
-    render(date)
+    val formatedDate = dateFormat.format(new Date())
+    render(formatedDate)
   }
 
   def calculate(date: String, extraDays: Int){
