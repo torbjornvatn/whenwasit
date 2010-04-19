@@ -1,8 +1,6 @@
 $(document).ready(function() {
     $("#datepicker").datepicker();
 
-    $('input[title!=""]').hint();
-
     $("#plus").bind("keyup", updatePlusDate);
     $("#minus").bind("keyup", updateMinusDate);
 
