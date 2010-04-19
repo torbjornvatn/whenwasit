@@ -1,15 +1,16 @@
 #{extends 'main.html' /}
 #{set title:'WhenWasIt?' /}
 
-<div>
+<section>
+  <article>
     <header>
         <h1>WhenWasIt?</h1>
     </header>
-
+  
     <div type="text" id="datepicker"></div>
 
     <fieldset id="minus_fieldset">
-        <span id="minus_date">${date}</span>
+        <span id="minus_date">${formatedDate}</span>
         <span>=</span>
         <input id="minus" value="" title="days"/>
         <span id="minus_sign">-</span>
@@ -19,15 +20,14 @@
         <span id="plus_sign">+</span>
         <input id="plus" value="" title="days"/>
         <span>=</span>
-        <span id="plus_date">${date}</span>
+        <span id="plus_date">${formatedDate}</span>
     </fieldset>
 
     <footer>
         <p>Compiled by <a href="http://twitter.com/torbjornvatn">@torbjornvatn</a></p>
     </footer>
     <script>
-
         var calculateAction = #{jsAction @Application.calculate() /}
-
     </script>
-</div>
+  </article>
+</section>
