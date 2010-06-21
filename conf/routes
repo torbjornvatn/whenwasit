@@ -1,11 +1,13 @@
-    # Routes
+# Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                                       JavaApplication.index
+POST    /calculate                              JavaApplication.calculate
 
-POST    /calculate                              Application.calculate
+# Home page Scala version
+#GET     /scala                                 ScalaApplication.index
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
